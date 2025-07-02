@@ -10,6 +10,8 @@ all: help
 DESIGN_PATH = $(PWD)
 ESP_ROOT = $(realpath ../../)
 TECHLIB  = virtex7
+TECH = virtex7
+TECH_TYPE = fpga
 BOARD    = xilinx-vc707-xc7vx485t
 DESIGN   = esp-$(BOARD)
 SMP = 0
@@ -21,6 +23,7 @@ USE_OPENSBI ?= 1
 TOP    = top
 SIMTOP = testbench
 
+XILINX_VIVADO = /esat/micas-data/software/Xilinx/vivado_2019.2/Vivado/2019.2
 
 ### Modelsim Simulation Options ###
 

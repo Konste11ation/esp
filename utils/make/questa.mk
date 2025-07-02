@@ -107,7 +107,11 @@ qsim-gui: qsim-compile
 	echo $(SPACES)"$(QSIM)"; \
 	$(QSIM); \
 	cd ../
-
+start_qsim_gui:
+	@cd questa; \
+	echo $(SPACES)"vsim $(QSIMOPT)"; \
+	vsim $(QSIMOPT); \
+	cd ../	
 qsim-clean:
 	$(QUIET_CLEAN)rm -rf transcript *.wlf
 
