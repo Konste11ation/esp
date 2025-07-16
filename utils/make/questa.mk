@@ -6,9 +6,9 @@ QLOGOPT = $(VLOGOPT)
 QSIMOPT = $(VSIMOPT)
 
 QLIB = vlib
-QCOM = vcom -quiet -93 $(QCOMOPT)
-QLOG = vlog -sv -quiet $(QLOGOPT)
-QSIM = vsim $(QSIMOPT)
+QCOM = vcom -64 -quiet -93 $(QCOMOPT)
+QLOG = vlog -64 -sv -quiet $(QLOGOPT)
+QSIM = vsim -64 $(QSIMOPT)
 
 ### Xilinx Simulation libs targets ###
 $(ESP_ROOT)/.cache/questa/xilinx_lib:
@@ -110,7 +110,12 @@ qsim-gui: qsim-compile
 start_qsim_gui:
 	@cd questa; \
 	echo $(SPACES)"vsim $(QSIMOPT)"; \
-	vsim $(QSIMOPT); \
+	vsim -64 $(QSIMOPT); \
+	cd ../
+start_qsim:
+	@cd questa; \
+	echo $(SPACES)"vsim $(QSIMOPT)"; \
+	vsim -64 -c $(QSIMOPT); \
 	cd ../	
 qsim-clean:
 	$(QUIET_CLEAN)rm -rf transcript *.wlf
