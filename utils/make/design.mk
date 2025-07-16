@@ -105,7 +105,8 @@ TOP_VHDL_SIM_PKGS +=
 
 TOP_VHDL_RTL_SRCS += $(DESIGN_PATH)/socketgen/accelerators.vhd
 TOP_VHDL_RTL_SRCS += $(DESIGN_PATH)/socketgen/caches.vhd
-# TOP_VHDL_RTL_SRCS += $(wildcard $(DESIGN_PATH)/socketgen/noc_*.vhd)
+# temporary dummy stratus for testing
+TOP_VHDL_RTL_SRCS += $(wildcard $(DESIGN_PATH)/socketgen/noc_*_stratus.vhd)
 TOP_VHDL_RTL_SRCS += $(DESIGN_PATH)/socketgen/tile_acc.vhd
 ifeq ($(filter $(TECHLIB),$(FPGALIBS)),)
 # ASIC flow: the top module of the hierarchy connects the FPGA design

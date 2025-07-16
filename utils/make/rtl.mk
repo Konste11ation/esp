@@ -67,6 +67,9 @@ VLOG_SRCS += $(foreach f, $(RTL_TECH_FOLDERS), $(shell (find $(f) -name "*.sv"))
 ifeq ("$(CPU_ARCH)", "ibex")
 VLOG_SRCS += $(VERILOG_IBEX)
 endif
+ifeq ("$(CPU_ARCH)", "ariane")
+VLOG_SRCS += $(VERILOG_ARIANE)
+endif
 # VLOG_SRCS += $(THIRDPARTY_VLOG) $(THIRDPARTY_SVLOG)
 VLOG_SRCS += $(TOP_VLOG_RTL_SRCS)
 
@@ -159,6 +162,6 @@ check_all_rtl_srcs-distclean:
 check_srcs-distclean:
 	$(QUIET_CLEAN)rm -rf $(RTL_CFG_BUILD)
 debug_flist:
-	@echo "$(VHDL_SRCS)" >> flist.txt
+	@echo "$(VHDL_SRCS)" >> vhdl_flist.txt
 
 .PHONY: check_all_rtl_srcs check_all_rtl_srcs-distclean check_srcs-distclean
